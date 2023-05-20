@@ -5,7 +5,8 @@
 {% block content %}
 
 <div class="container">
-    <form class="registration-form">
+    <form class="registration-form" method="post" action="/auth/register">
+        {% csrf_token %}
         <h2 style="text-align: center;">Registration</h2>
         <div class="form-group">
             <label for="username">Username:</label>
