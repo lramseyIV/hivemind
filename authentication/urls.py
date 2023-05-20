@@ -4,5 +4,6 @@ from . import views
 # I don't like usign django built in authentication
 
 urlpatterns = [
-    
+    path("login", views.login),
+    path("register", views.register)
 ]
