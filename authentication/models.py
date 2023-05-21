@@ -32,6 +32,10 @@ class User (models.Model):
     password = models.CharField(max_length=255, unique=True)
     email = models.CharField(max_length=255)
     phone = models.CharField(max_length=20) # For account creation, verification and MFA later
+    is_verified = models.BooleanField(default=False)
     objects = models.Manager()
     validator = UserManager()
     
+class VerificationURL(models.Model):
+    url_string = models.CharField(max_length=30)
+    user_id = models.IntegerField() # user id, no need for relationship here

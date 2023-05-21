@@ -6,6 +6,7 @@ from . import views
 urlpatterns = [
     path("login", views.login),
     path("register", views.register),
-    path('success', views.success),
-    path('logout', views.logout)
+    path('verify', views.verify),
+    path('logout', views.logout),
+    path('confirm/<str:url_string>', views.confirm_account)
 ]
