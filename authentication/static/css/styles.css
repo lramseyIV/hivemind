@@ -78,6 +78,18 @@ nav {
     display: block;
 }
 
+.message-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.messages li {
+    color: white;
+    font-weight: bold;
+}
+
+
 /* Form control styles */
 input[type="password"],
 input[type="tel"],

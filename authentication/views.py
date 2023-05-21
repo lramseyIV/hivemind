@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
-from django.contrib import sessions
+from django.contrib import sessions, messages
 from .models import User
 import bcrypt
 
-# Create your views here.
+# views.py for authentication app
 
 def login(request): # to handle both get and post
     if request.method == "GET":
@@ -17,14 +17,23 @@ def login(request): # to handle both get and post
             if bcrypt.checkpw(form_password.encode(), stored.encode()):
                 request.session['id'] = user.id
                 return redirect ('/auth/success')
-        return redirect('/auth/login')
+        messages.error(request, "username or password invalid")
+        return render (request, "login.html")
 
 def register(request): # both get and post
     if request.method =="GET":
         return render (request, 'register.html')
     if request.method =="POST":
-        if User.objects.filter(username=request.POST['username']):
-            return redirect ('/auth/register') # will be handled by manager later instead
+        # test validation 
+        errors = User.validator.auth_validator(request)
+        print(errors)
+        if errors:
+            for key, value in errors.items():
+                messages.error(request, value)
+            return render (request, "register.html")
+        if User.objects.filter(username=request.POST['username']) or User.objects.filter(email=request.POST['email']):
+            messages.error(request, "Username or email already taken")
+            return render (request, "register.html")
         form_password = request.POST['password']
         hashed_password = bcrypt.hashpw(form_password.encode(), bcrypt.gensalt()).decode()
         user = User.objects.create(username = request.POST['username'], password=hashed_password, email=request.POST['email'], phone=request.POST['phone'])
