@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import sessions, messages
 from .models import User, VerificationURL
 import bcrypt
-from .helper_functions import create_verification_url
+from .helper_functions import create_verification_url, send_email
 
 # views.py for authentication app
 
@@ -44,14 +44,14 @@ def register(request): # both get and post
         # create verification url to send to user
         url = create_verification_url()
         VerificationURL.objects.create(user_id=user.id, url_string=url)
-        # SEND USER EMAIL WITH LINK!!!
+        message = f"Hivemind Account Verification\n http://127.0.0.1:8000/auth/confirm/{url}"
+        send_email(user.email, message)
         return redirect ('/auth/verify')
 
 # LET USER KNOW TO CHECK EMAIL
 def verify(request): # Tell Customer to verify via email.
-    if 'id' in request.session:
-        return render (request, 'confirm_notify.html')
-    return redirect('/auth/login')
+    return render (request, 'confirm_notify.html')
+
 
 # LOGOUT
 def logout(request):
