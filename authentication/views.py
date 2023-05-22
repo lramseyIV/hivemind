@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import sessions, messages
 from .models import User, VerificationURL
 import bcrypt
-from .helper_functions import create_verification_url, send_email
+from .helper_functions import create_verification_url, send_email, gen_password
 
 # views.py for authentication app
 
@@ -21,7 +21,7 @@ def login(request):
                 if not user.is_verified:
                     return redirect ('/auth/verify')
                 request.session['id'] = user.id
-                return redirect('/something/else')
+                return redirect('/profile')
         messages.error(request, "username or password invalid")
         return render (request, "login.html")
 
@@ -67,7 +67,24 @@ def confirm_account(request, url_string): #takes url string and verifies account
         user.is_verified = True
         user.save()
         vurl.delete()
-        return redirect("/something/here")
+        request.session['id'] = user.id
+        return redirect("/profile")
     return redirect("/auth/verify")
+
+# AUTH RELATED (changing passwords, forgot passwords MFA etc)
+def forgot_password(request):
+    # will send user email with new password
+    if request.method=="GET":
+        return render(request, "forgot_password.html") # NEED TO CREATE HTML
+    if request.method=="POST":
+        if User.objects.filter(email=request.POST['email']):
+            user = User.objects.get(id=int(request.session['id']))
+            new_pw = gen_password()
+            user.password = bcrypt.hashpw(new_pw.encode(), bcrypt.gensalt()).decode()
+            user.save()
+            send_email(user.email, f'Hivemind Password Reset\n Password: {new_pw}')
+        messages.info(request, "If your email exists we sent you a new temporary password via email.")
+        return render (request, "login.html")
+
 
 

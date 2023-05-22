@@ -8,5 +8,6 @@ urlpatterns = [
     path("register", views.register),
     path('verify', views.verify),
     path('logout', views.logout),
-    path('confirm/<str:url_string>', views.confirm_account)
+    path('confirm/<str:url_string>', views.confirm_account),
+    path('sendpw', views.forgot_password)
 ]
