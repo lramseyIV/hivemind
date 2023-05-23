@@ -4,7 +4,7 @@
 
 Hivemind is a project just for fun, it is a social media site with a few caveats. I got the idea for these caveats after reading a book. I won't give too much away just yet. 
 
-All front-end work will be done with Fomantic-UI (for me to learn through doing). 
+All front-end work will be done with Bulma.
 
 I am not a developer, this will eventually be impressive but for the forseeable future this will be a simple social media site with basic CRUD operations. A Like button will probably be the most difficult thing that I do here. Other than the caviats which I will not mention. 
 
