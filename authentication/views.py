@@ -6,6 +6,8 @@ from .helper_functions import create_verification_url, send_email, gen_password
 
 # views.py for authentication app
 
+HOSTING_URL = 'http://127.0.0.1:8000' # change to domain when deployed
+
 # LOGIN 
 def login(request):
     if request.method == "GET":
@@ -44,7 +46,7 @@ def register(request): # both get and post
         # create verification url to send to user
         url = create_verification_url()
         VerificationURL.objects.create(user_id=user.id, url_string=url)
-        message = f"Hivemind Account Verification\n http://127.0.0.1:8000/auth/confirm/{url}"
+        message = f"Hivemind Account Verification\n Click the link below to verify your account\n {HOSTING_URL}/auth/confirm/{url}"
         send_email(user.email, message)
         return redirect ('/auth/verify')
 
@@ -57,7 +59,7 @@ def verify(request): # Tell Customer to verify via email.
 def logout(request):
     if 'id' in request.session:
         del request.session['id']    
-    return redirect ('/auth/login')
+    return redirect ('/')
 
 # HANDLE VERIFICATION URL
 def confirm_account(request, url_string): #takes url string and verifies account
@@ -85,6 +87,7 @@ def forgot_password(request):
             send_email(user.email, f'Hivemind Password Reset\n Password: {new_pw}')
         messages.info(request, "If your email exists we sent you a new temporary password via email.")
         return render (request, "login.html")
+    
 
 
 

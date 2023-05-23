@@ -11,3 +11,4 @@ def profile_home(request):
             'user': user
         }
         return render (request, "profile_home.html", context)
+    return redirect ("/")

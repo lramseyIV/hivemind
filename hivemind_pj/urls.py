@@ -19,7 +19,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", include("public.urls")),
-    path ("auth/", include("authentication.urls")),
-    path("profile/", include("profile_management.urls"))
+    path("", include("public.urls")), # landing page, anything not requiring login
+    path ("auth/", include("authentication.urls")), # to handle all authentication-related functionality
+    path("profile/", include("profile_management.urls")) # to handle all things related to profile CRUD except auth info
 ]
