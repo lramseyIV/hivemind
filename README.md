@@ -4,9 +4,7 @@
 
 Hivemind is a project just for fun, it is a social media site with a few caveats. I got the idea for these caveats after reading a book. I won't give too much away just yet. 
 
-I hate CSS and Bulma and Bootstrap all look alike. I will be using ChatGPT for all CSS development because why waste time doing something I don't enjoy all while trying to do a project just for fun??
-
-All JS, Python, and most HTML will be done without the help of any AI whatsoever though. 
+All front-end work will be done with Fomantic-UI (for me to learn through doing). 
 
 I am not a developer, this will eventually be impressive but for the forseeable future this will be a simple social media site with basic CRUD operations. A Like button will probably be the most difficult thing that I do here. Other than the caviats which I will not mention. 
 
@@ -18,7 +16,7 @@ Forgot Password.
 
 **In Progress**
 Profile makeup and options
-UI Overhaul
+UI Overhaul - will use Fomantic-UI (never used it before)
 
 **To Do**
 MFA (custom via Twilio)
