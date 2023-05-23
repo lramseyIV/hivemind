@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'authentication',
     'profile_management',
+    'public',
 ]
 
 MIDDLEWARE = [
