@@ -11,17 +11,23 @@ I am not a developer, this will eventually be impressive but for the forseeable 
 ### Progress
 **Done**
 Login & Registration
+
 Account Verification before a user can access platform
+
 Forgot Password.
 
 **In Progress**
 Profile makeup and options
-UI Overhaul - will use Fomantic-UI (never used it before)
+
+UI Overhaul - will use Bulma.io
 
 **To Do**
 MFA (custom via Twilio)
+
 Posting, Commenting Liking
+
 Secret Features
+
 Complete 
 
 ### So Far
