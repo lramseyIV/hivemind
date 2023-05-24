@@ -14,12 +14,15 @@ Login & Registration
 
 Account Verification before a user can access platform
 
-Forgot Password.
-
-**In Progress**
-Profile makeup and options
+Forgot Password
 
 UI Overhaul - will use Bulma.io
+
+**In Progress**
+
+Profile database model and profile page layout
+
+
 
 **To Do**
 MFA (custom via Twilio)
