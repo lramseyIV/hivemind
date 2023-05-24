@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hivemind Home</title>
+<!-- landing page -->
+{% extends 'base.html' %}
+{% block title %} Hivemind Home {% endblock %}
 
-</head>
-<body>
-    <a href="/auth/login">Log In</a> | <a href="/auth/register">Create New Account</a>
-</body>
-</html>
+{% block content %}  
+<h1 class="title">Hivemind Home</h1>
+<p class="content">This is the home page of hivemind and will soon be a cool landing page.</p>
+
+{% endblock %}

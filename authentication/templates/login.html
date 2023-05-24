@@ -4,23 +4,25 @@
 
 {% block content %}
     <div class="container">
-        <h1 style="text-align: center;">Log In</h1><br><br>
+        <br>
+        <h1 class="title" style="text-align: center;">Log In</h1><br><br>
         <form class="login-form" method="post", action="/auth/login">
             {% csrf_token %}
-            <div class="form-group">
-                <input type="text" id="username" name="username" placeholder="username" required>
+            <div class="field">
+                <input class="input" id="username" name="username" placeholder="username" required>
             </div><br>
-            <div class="form-group">
-                <input type="password" id="password" name="password" placeholder="password" required>
+            <div class="field">
+                <input class="input" id="password" name="password" placeholder="password" required>
             </div><br><br>
-            <div class="form-group">
-                <button type="submit">Login</button>
+            <div class="field">
+                <button class="button is-dark" type="submit">Login</button>
             </div>
         </form><br>
-        <a style="color: white;" href="/auth/sendpw">Forgot Password</a>
+        <a style="color: black;" href="/auth/sendpw">Forgot Password</a>
     </div>
 
-    <div class="message-container">
+<!-- fix this so that it looks better -->
+    <div style="margin: auto;"> 
         {% if messages %}
         <ul class="messages">
             {% for message in messages %}

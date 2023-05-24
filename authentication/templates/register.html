@@ -7,29 +7,29 @@
 <div class="container">
     <form class="registration-form" method="post" action="/auth/register">
         {% csrf_token %}
-        <h1 style="text-align: center;">Registration</h1><br>
-        <div class="form-group">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
+        <h1 class="title" style="text-align: center;">Registration</h1><br>
+        <div class="field">
+            <label class="label" for="username">Username:</label>
+            <input class="input" type="text" id="username" name="username" required>
+        </div><br>
+        <div class="field">
+            <label class="label"  for="email">Email:</label>
+            <input class="input" type="email" id="email" name="email" required>
+        </div><br>
+        <div class="field">
+            <label class="label"  for="password">Password:</label>
+            <input class="input" type="password" id="password" name="password" required>
+        </div><br>
+        <div class="field">
+            <label class="label"  for="confirm-password">Confirm Password:</label>
+            <input class="input" type="password" id="confirm-password" name="confirm-password" required>
+        </div><br>
+        <div class="field">
+            <label class="label"  for="phone">Phone Number:</label>
+            <input class="input" type="tel" id="phone" name="phone" required>
         </div><br>
         <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-        </div><br>
-        <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-        </div><br>
-        <div class="form-group">
-            <label for="confirm-password">Confirm Password:</label>
-            <input type="password" id="confirm-password" name="confirm-password" required>
-        </div><br>
-        <div class="form-group">
-            <label for="phone">Phone Number:</label>
-            <input type="tel" id="phone" name="phone" required>
-        </div><br>
-        <div class="form-group">
-            <button type="submit">Register</button>
+            <button class="button is-dark" type="submit">Register</button>
         </div>
     </form>
 </div>
