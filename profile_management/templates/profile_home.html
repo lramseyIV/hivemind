@@ -1,7 +1,32 @@
-{% extends 'base.html' %}
-
-{% block title %}Profile {% endblock %}
-
+{% extends 'base.html' %} {% block title %}Profile {% endblock %} 
 {% block content %}
-<h1>Welcome {{user.username}}</h1>
+<!-- add is-active class for any item when on that page -->
+<div class="columns">
+  <div class="column is-one-fifth">
+    <aside class="menu">
+      <p class="menu-label">Profile</p>
+      <ul class="menu-list">
+        <li><a>Edit Profile</a></li>
+        <li><a>Delete Your Profile</a></li>
+      </ul>
+      <p class="menu-label">Security and Login</p>
+      <ul class="menu-list">
+        <li><a>Change Password</a></li>
+        <li><a>Enable 2 Factor Authentication</a></li>
+        <li><a>Change Phone Number</a></li>
+      </ul>
+      <p class="menu-label">Activity</p>
+      <ul class="menu-list">
+        <li><a>Your Posts</a></li>
+        <li><a>Your Comments</a></li>
+        <li><a>Your Likes</a></li>
+        <li><a>Condemed Posts Status</a></li>
+      </ul>
+    </aside>
+  </div>
+  <div class="column">
+    <h1 class="title" style="text-align: center">Profile Home</h1>
+  </div>
+</div>
+
 {% endblock %}
