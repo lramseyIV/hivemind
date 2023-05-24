@@ -1,9 +1,77 @@
 <!-- landing page -->
-{% extends 'base.html' %}
+ {% extends 'base.html' %}
 {% block title %} Hivemind Home {% endblock %}
 
 {% block content %}  
-<h1 class="title">Hivemind Home</h1>
-<p class="content">This is the home page of hivemind and will soon be a cool landing page.</p>
 
-{% endblock %}
+  <!-- Hero section -->
+  <section class="hero is-dark is-fullheight">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          Welcome to Hivemind
+        </h1>
+        <h2 class="subtitle">
+          The next big thing is social media.
+        </h2>
+        <a href="/auth/register" class="button is-light">Get Started</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features section -->
+  <section class="section">
+    <div class="container">
+      <div class="columns">
+        <div class="column">
+          <div class="box">
+            <div class="content">
+              <h3 class="title">Be Methodical</h3>
+              <p>Posts, and comments are limited to encourage thoughtful content.</p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="box">
+            <div class="content">
+              <h3 class="title">Democratic</h3>
+              <p>NO admin has ANY access to any post, comment or personal information of yours. Content is moderated by <strong>users</strong> not admins with agendas.</p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="box">
+            <div class="content">
+              <h3 class="title">Connect</h3>
+              <p>Stay in touch with your friends and make new connections.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA section -->
+  <section class="section">
+    <div class="container">
+      <div class="columns">
+        <div class="column">
+          <h3 class="title">Ready to join?</h3>
+          <p>Sign up now and start connecting with people around the world!</p>
+        </div>
+        <div class="column">
+          <a href="/auth/register" class="button is-primary is-large is-fullwidth">Sign Up</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer section -->
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        &copy; 2023 Hivemind. All rights reserved.
+      </p>
+    </div>
+  </footer>
+  {% endblock %} 

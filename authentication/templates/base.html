@@ -21,10 +21,12 @@
             <a class="navbar-link has-text-white"> Menu </a>
 
             <div class="navbar-dropdown is-boxed">
+                {% if request.session.id %}
+                <a class="navbar-item" href="/auth/logout">Sign Out</a>
+                {% else %}
                 <a class="navbar-item" href="/auth/login"> Log In </a>
                 <a class="navbar-item" href="/auth/register"> Register </a>
-                <hr class="navbar-divider" />
-                <a class="navbar-item" href="/auth/logout">Sign Out</a>
+                {% endif %}
             </div>
         </div>
     </nav>
