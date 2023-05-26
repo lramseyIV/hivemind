@@ -35,10 +35,10 @@ Complete
 
 ### So Far
 
-![image](https://github.com/lramseyIV/hivemind/assets/101740856/3d801628-06f1-44cc-8807-5e4ef510162e)
+![image](https://github.com/lramseyIV/hivemind/assets/101740856/6f63c222-26e2-4a8c-ac5b-54870c581bcc)
 
-![image](https://github.com/lramseyIV/hivemind/assets/101740856/227ff7a8-a9b4-4b47-9348-360290929326)
+![image](https://github.com/lramseyIV/hivemind/assets/101740856/d9b98009-44a3-43f7-ad60-db8dde453362)
 
-![image](https://github.com/lramseyIV/hivemind/assets/101740856/0817b43d-7d74-49a8-a695-a647683f401d)
+![image](https://github.com/lramseyIV/hivemind/assets/101740856/64554b93-392a-4fca-aed8-a0c70af5fa30)
 
 
