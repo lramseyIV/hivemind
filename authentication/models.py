@@ -1,5 +1,6 @@
 from django.db import models
 import re
+from profile_management.models import Profile
 # My own user model
 class UserManager(models.Manager):
     def auth_validator(self, request):
@@ -33,8 +34,11 @@ class User (models.Model):
     email = models.CharField(max_length=255)
     phone = models.CharField(max_length=20) # For account creation, verification and MFA later
     is_verified = models.BooleanField(default=False)
+    has_two_factor = models.BooleanField(default=False)
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True)
     objects = models.Manager()
     validator = UserManager()
+
     
 class VerificationURL(models.Model):
     url_string = models.CharField(max_length=30)

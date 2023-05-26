@@ -1,0 +1,147 @@
+{% extends 'base.html' %} {% block title %}Edit Profile{% endblock %} 
+{% block content %}
+<style>
+    /* Custom styles go here */
+    .file-input-wrapper {
+        background-color: #3273dc;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  z-index: 2;
+  transform: translate(0, -50%);
+  top: 50%;
+}
+
+    .file-input-wrapper input[type="file"] {
+      font-size: 100px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+      z-index: 1;
+    }
+    .file-input-button {
+      background-color: #3273dc;
+      color: white;
+      padding: 10px 15px;   
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      position: relative; 
+    z-index: 1;
+    }
+  </style>
+
+<div class="columns">
+  <div class="column is-one-fifth">
+    <aside class="menu">
+      <p class="menu-label">Profile</p>
+      <ul class="menu-list">
+        <li><a class="is-active">Edit Profile</a></li>
+        <li><a>Delete Your Profile</a></li>
+      </ul>
+      <p class="menu-label">Security and Login</p>
+      <ul class="menu-list">
+        <li><a>Change Password</a></li>
+        <li><a>Enable 2 Factor Authentication</a></li>
+        <li><a>Change Phone Number</a></li>
+      </ul>
+      <p class="menu-label">Activity</p>
+      <ul class="menu-list">
+        <li><a>Your Comments</a></li>
+        <li><a>Your Likes</a></li>
+        <li><a>Condemed Posts Status</a></li>
+      </ul>
+    </aside>
+  </div>
+  <div class="column">
+    <section class="section">
+      <div class="container">
+        <div class="columns">
+          <!-- Profile information -->
+          <div class="column is-one-third">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="profile-picture.jpg" alt="Profile Picture">
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-left">
+                    <figure class="image is-48x48">
+                      <img src="avatar.jpg" alt="Avatar">
+                    </figure>
+                  </div>
+                  <div class="media-content">
+                    <p class="title is-4">{{user.profile.display_name}}</p>
+                    <p class="subtitle is-6">{{user.username}}</p>
+                  </div>
+                </div>
+  
+                <div class="content">
+                  <p>Bio: {{user.profile.bio}}</p>
+                  <p>Email: {{user.email}}</p>
+                  <p>Location: {{user.profile.city}}, {{user.profile.city}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Edit Profile Form -->
+          <div class="column">
+                <form action="/profile/edit" enctype="multipart/form-data" method="post">
+                    {% csrf_token %}
+                    <div class="field">
+                        <label class="label" for="display_name">Display Name</label>
+                        <input class="input" type="text" id="display_name" name="display_name" value="{{user.profile.display_name}}" required>
+                    </div><br>
+                    <div class="field">
+                        <label class="label" for="bio">Bio</label>
+                        <textarea class="textarea" name="bio" id="bio">{{user.profile.bio}}</textarea>
+                    </div>
+                    <div class="field">
+                        <label class="label" for="country">Country</label>
+                        <input class="input" type="text" id="country" name="country" value="{{user.profile.country}}" required>
+                    </div><br>
+                    <div class="field">
+                        <label class="label" for="city">City</label>
+                        <input class="input" type="text" id="city" name="city" value="{{user.profile.city}}" required>
+                    </div><br>
+
+                    <div class="field">
+                        <div class="file has-name is-fullwidth">
+                          <label class="file-input-wrapper">
+                            <input class="file-input" type="file" name="profile_picture" onchange="handleFileChange(event)">
+                            <span class="file-input-button">Choose a file...</span>
+                          </label>
+                         
+                        </div>
+                        <p class="file-name">No File Chosen.</p>
+                      </div>
+                    <div class="field">
+                        <button class="button is-dark" type="submit">Save</button>
+                    </div>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<script>
+    function handleFileChange(event) {
+      const selectedFile = event.target.files[0];
+      const fileNameContainer = document.querySelector('.file-name');
+      fileNameContainer.textContent = selectedFile.name;
+    }
+</script>
+
+{% endblock %}

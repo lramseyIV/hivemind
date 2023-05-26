@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import sessions, messages
 from .models import User, VerificationURL
+from profile_management.models import Profile
 import bcrypt
 from .helper_functions import create_verification_url, send_email, gen_password
 
@@ -42,7 +43,8 @@ def register(request): # both get and post
             return render (request, "register.html")
         form_password = request.POST['password']
         hashed_password = bcrypt.hashpw(form_password.encode(), bcrypt.gensalt()).decode()
-        user = User.objects.create(username = request.POST['username'], password=hashed_password, email=request.POST['email'], phone=request.POST['phone'])
+        profile = Profile.objects.create()
+        user = User.objects.create(username = request.POST['username'], password=hashed_password, email=request.POST['email'], phone=request.POST['phone'], profile=profile)
         # create verification url to send to user
         url = create_verification_url()
         VerificationURL.objects.create(user_id=user.id, url_string=url)

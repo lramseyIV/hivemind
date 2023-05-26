@@ -1,12 +1,13 @@
 {% extends 'base.html' %} {% block title %}Profile {% endblock %} 
 {% block content %}
+{% load static %}
 <!-- add is-active class for any item when on that page -->
 <div class="columns">
   <div class="column is-one-fifth">
     <aside class="menu">
       <p class="menu-label">Profile</p>
       <ul class="menu-list">
-        <li><a>Edit Profile</a></li>
+        <li><a href="/profile/edit">Edit Profile</a></li>
         <li><a>Delete Your Profile</a></li>
       </ul>
       <p class="menu-label">Security and Login</p>
@@ -32,26 +33,26 @@
             <div class="card">
               <div class="card-image">
                 <figure class="image is-4by3">
-                  <img src="profile-picture.jpg" alt="Profile Picture">
+                  <img src="{{user.profile.profile_picture.url}}" alt="{{user.profile.profile_picture.name}}">
                 </figure>
               </div>
               <div class="card-content">
                 <div class="media">
                   <div class="media-left">
                     <figure class="image is-48x48">
-                      <img src="avatar.jpg" alt="Avatar">
+                      <img src="{{user.profile.profile_picture.url}}" alt="Avatar">
                     </figure>
                   </div>
                   <div class="media-content">
-                    <p class="title is-4">John Doe</p>
-                    <p class="subtitle is-6">@johndoe</p>
+                    <p class="title is-4">{{user.profile.display_name}}</p>
+                    <p class="subtitle is-6">{{user.username}}</p>
                   </div>
                 </div>
   
                 <div class="content">
-                  <p>Bio: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vestibulum mauris eu tortor mattis posuere.</p>
-                  <p>Email: john.doe@example.com</p>
-                  <p>Location: City, Country</p>
+                  <p>Bio: {{user.profile.bio}}</p>
+                  <p>Email: {{user.email}}</p>
+                  <p>Location: {{user.profile.city}}, {{user.profile.city}}</p>
                 </div>
               </div>
             </div>
@@ -70,7 +71,7 @@
                   <div class="media">
                     <div class="media-left">
                       <figure class="image is-48x48">
-                        <img src="post1.jpg" alt="Post 1">
+                        <img src="{{user.profile.profile_picture.url}}" alt="Post 1">
                       </figure>
                     </div>
                     <div class="media-content">
@@ -82,7 +83,7 @@
                   <div class="media">
                     <div class="media-left">
                       <figure class="image is-48x48">
-                        <img src="post2.jpg" alt="Post 2">
+                        <img src="{{user.profile.profile_picture.url}}" alt="Post 2">
                       </figure>
                     </div>
                     <div class="media-content">
