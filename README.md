@@ -18,9 +18,11 @@ Forgot Password
 
 UI Overhaul - will use Bulma.io
 
+Profile database model and profile page layout
+
 **In Progress**
 
-Profile database model and profile page layout
+Crop Profile Image before upload
 
 
 
