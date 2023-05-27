@@ -22,7 +22,7 @@ Profile database model and profile page layout
 
 **In Progress**
 
-Crop Profile Image before upload
+Delete Profile, Change Password, Change Phone Number options in profile page
 
 
 
